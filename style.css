@@ -25,14 +25,14 @@ body {
     text-align: center;
     position: relative;
     z-index: 10;
-    margin-top: -10px; /* ظبطنا المسافة فوق النص عشان يبقى فوق الزرار تماماً ومينزلش عليه */
+    margin-top: -10px;
     height: 60px;
 }
 
 .text h1 {
     font-family: 'Dancing Script', cursive;
     color: #c2185b;
-    font-size: 2.8em; /* صغرنا حجم الخط شوية عشان يتناسب تماماً مع شاشات الموبايل */
+    font-size: 2.8em;
     font-weight: 700;
     text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7);
     margin: 0;
@@ -176,7 +176,7 @@ body {
 /* ============================================== Surprise Button & Modal */
 #surprise-btn {
     display: none;
-    margin-top: 15px;
+    margin-top: 30px; /* نزلنا الزرار لتحت شوية عن النص */
     padding: 12px 28px;
     font-family: 'Lato', sans-serif;
     font-size: 1.1em;
