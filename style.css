@@ -1,0 +1,285 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #f4a6b7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============================================== Container Fix */
+.cake-container {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    margin-top: 50px;
+}
+
+/* ============================================== Text Style */
+.text {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    margin-top: 10px;
+    height: 60px;
+}
+
+.text h1 {
+    font-family: 'Dancing Script', cursive;
+    color: #c2185b;
+    font-size: 3.5em;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7);
+    margin: 0;
+    border-right: 3px solid #c2185b;
+    padding-right: 5px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* ============================================== Cake & Candle */
+#cake {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.velas {
+    background: #ffffff;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 95px;
+    left: 50%;
+    margin-left: -2.4px;
+    width: 5px;
+    height: 35px;
+    opacity: 0;
+    animation: dropCandle 500ms 6s ease-out forwards;
+    z-index: 6;
+}
+
+.velas:after,
+.velas:before {
+    background: rgba(255, 0, 0, 0.4);
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2.22222222px;
+}
+
+.velas:after {
+    top: 25%;
+    left: 0;
+}
+
+.velas:before {
+    top: 45%;
+    left: 0;
+}
+
+@keyframes dropCandle {
+    0% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+
+    1% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ============================================== Fire */
+.fuego {
+    border-radius: 100%;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    margin-left: -2.6px;
+    width: 6.66666667px;
+    height: 18px;
+}
+
+.fuego:nth-child(1) {
+    animation: fuego 2s 6.5s infinite;
+}
+
+.fuego:nth-child(2) {
+    animation: fuego 1.5s 6.5s infinite;
+}
+
+.fuego:nth-child(3) {
+    animation: fuego 1s 6.5s infinite;
+}
+
+.fuego:nth-child(4) {
+    animation: fuego 0.5s 6.5s infinite;
+}
+
+.fuego:nth-child(5) {
+    animation: fuego 0.2s 6.5s infinite;
+}
+
+@keyframes fuego {
+
+    0%,
+    100% {
+        background: rgba(254, 248, 97, 0.5);
+        box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        background: rgba(255, 50, 0, 0.1);
+        box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+        transform: translateY(-20px) scale(0);
+    }
+}
+
+/* ============================================== Confetti */
+.confetti {
+    position: absolute;
+    top: -100px;
+    border-radius: 50%;
+    animation: fall linear infinite;
+    z-index: 1;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ============================================== Surprise Button & Modal */
+#surprise-btn {
+    display: none;
+    margin-top: 15px;
+    padding: 12px 28px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1em;
+    background-color: #c2185b;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(194, 24, 91, 0.4);
+    z-index: 10;
+    animation: fadeIn 0.8s ease-in-out;
+    transition: transform 0.2s ease;
+}
+
+#surprise-btn:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    max-width: 85%;
+    /* الإضافة دي عشان الكلام ميخرجش بره الشاشة لو الموبايل صغير */
+    max-height: 85vh;
+    overflow-y: auto;
+    animation: popUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popUp {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-content img {
+    max-width: 250px;
+    max-height: 40vh;
+    /* صغرنا دي شوية عشان تدي مساحة للكلام */
+    border-radius: 15px;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* مسحنا الـ h2 وحطينا تنسيق الرسالة بالعربي */
+.birthday-message {
+    font-family: 'Cairo', Tahoma, sans-serif;
+    font-size: 1.1em;
+    color: #c2185b;
+    line-height: 1.8;
+    margin: 0;
+    font-weight: 700;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    color: #888;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #c2185b;
+}
